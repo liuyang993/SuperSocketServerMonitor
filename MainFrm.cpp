@@ -71,6 +71,9 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DockControlBar(&m_wndToolBar);
 
 
+	int i =1;
+	int j =2;
+
 	return 0;
 }
 
