@@ -69,6 +69,7 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\SuperSockerServerMonitor.ico"
+IDI_ICON2               ICON                    "E:\\DevTools\\Icons\\keys.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //

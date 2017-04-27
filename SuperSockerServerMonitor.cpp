@@ -99,7 +99,9 @@ BOOL CSuperSockerServerMonitorApp::InitInstance()
 	pFrame->LoadFrame(IDR_MAINFRAME,
 		WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL,
 		NULL);
-
+	//pFrame->LoadFrame(IDI_ICON2,
+	//	WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL,
+	//	NULL);
 
 
 
