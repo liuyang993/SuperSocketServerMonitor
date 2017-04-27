@@ -18,6 +18,7 @@
 
 BEGIN_MESSAGE_MAP(CSuperSockerServerMonitorApp, CWinApp)
 	ON_COMMAND(ID_APP_ABOUT, &CSuperSockerServerMonitorApp::OnAppAbout)
+	ON_COMMAND(ID_FILE_MRU_CHECKCLIENTSTATE, &CSuperSockerServerMonitorApp::OnCheckClientState)
 END_MESSAGE_MAP()
 
 
@@ -156,6 +157,12 @@ void CSuperSockerServerMonitorApp::OnAppAbout()
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
+
+void CSuperSockerServerMonitorApp::OnCheckClientState()
+{
+	AfxMessageBox("OnCheckClientSatte");
+}
+
 
 // CSuperSockerServerMonitorApp message handlers
 

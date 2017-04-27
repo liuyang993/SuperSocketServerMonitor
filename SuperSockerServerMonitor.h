@@ -29,6 +29,7 @@ public:
 
 public:
 	afx_msg void OnAppAbout();
+	afx_msg void OnCheckClientState();
 	DECLARE_MESSAGE_MAP()
 };
 
