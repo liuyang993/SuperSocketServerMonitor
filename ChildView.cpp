@@ -76,12 +76,12 @@ void CChildView::OnFileDisplayclientstate()
 
 
 	//AfxMessageBox("xxx");
-
+	static int x=1,y=1;
 
 	Invalidate();  
 
 	CPaintDC dc(this);
-		dc.SetTextColor(RGB(0, 0, 0)); // 可根据日志警告级别改变字体颜色  
+	dc.SetTextColor(RGB(0, 0, 0)); // 可根据日志警告级别改变字体颜色  
 	
 	TEXTMETRIC tm;  
     dc.GetTextMetrics(&tm);  
@@ -95,8 +95,8 @@ void CChildView::OnFileDisplayclientstate()
 	std::string str1 = "aaaabbb";
 	
 	//dc.TextOut(x,y,log_vector[i].c_str(),log_vector[i].length());  
-	dc.TextOut(1,4,str1.c_str(),str1.length());  
-	
+	dc.TextOut(x,y,str1.c_str(),str1.length());  
+	y=y+8;
 	
 
 }
@@ -105,7 +105,7 @@ void CChildView::OnFileDisplayclientstate()
 void CChildView::WriteToView(std::string s)
 {
 	// TODO: Add your command handler code here
-
+	static int x=1,y=1;
 
 	//AfxMessageBox("xxx");
 
@@ -127,7 +127,8 @@ void CChildView::WriteToView(std::string s)
 	//std::string str1 = "aaaabbb";
 	
 	//dc.TextOut(x,y,log_vector[i].c_str(),log_vector[i].length());  
-	dc.TextOut(1,4,s.c_str(),s.length());  
+	dc.TextOut(x,y,s.c_str(),s.length());
+	y=y+8;
 	
 	
 
