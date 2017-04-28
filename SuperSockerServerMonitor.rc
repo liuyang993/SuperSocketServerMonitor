@@ -104,6 +104,7 @@ BEGIN
     BEGIN
         MENUITEM "E&xit",                       ID_APP_EXIT
         MENUITEM "Check Client State",          ID_FILE_MRU_CHECKCLIENTSTATE
+        MENUITEM "Display Client State",        ID_FILE_DISPLAYCLIENTSTATE
     END
     POPUP "&Edit"
     BEGIN
