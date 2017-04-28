@@ -8,6 +8,8 @@
 #endif
 
 #include "resource.h"       // main symbols
+#include "ClientSocket.h"
+#include "ChildView.h"
 
 
 // CSuperSockerServerMonitorApp:
@@ -18,19 +20,21 @@ class CSuperSockerServerMonitorApp : public CWinApp
 {
 public:
 	CSuperSockerServerMonitorApp();
-
+	CChildView*		m_pConnectView; // 主连接视图
+	static void CALLBACK NotifyProc(LPVOID lpParam, std::string Content, UINT nCode);
 
 // Overrides
 public:
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();
-
+	CClientSocket m_socketClient;
 // Implementation
 
 public:
 	afx_msg void OnAppAbout();
 	afx_msg void OnCheckClientState();
 	DECLARE_MESSAGE_MAP()
+	afx_msg void OnFileConnecttoserver();
 };
 
 extern CSuperSockerServerMonitorApp theApp;

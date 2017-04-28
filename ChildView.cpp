@@ -16,6 +16,7 @@
 
 CChildView::CChildView()
 {
+	((CSuperSockerServerMonitorApp *)AfxGetApp())->m_pConnectView = this;
 }
 
 CChildView::~CChildView()
@@ -72,7 +73,11 @@ int CChildView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CChildView::OnFileDisplayclientstate()
 {
 	// TODO: Add your command handler code here
-	//this->
+
+
+
+
+
 	Invalidate();  
  //   this->UpdateWindow();  
 
@@ -94,5 +99,6 @@ void CChildView::OnFileDisplayclientstate()
 	dc.TextOut(1,4,str1.c_str(),str1.length());  
 	
 		//Invalidate();  
+	
 
 }

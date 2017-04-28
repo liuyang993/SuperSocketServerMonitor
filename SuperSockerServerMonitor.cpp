@@ -19,6 +19,7 @@
 BEGIN_MESSAGE_MAP(CSuperSockerServerMonitorApp, CWinApp)
 	ON_COMMAND(ID_APP_ABOUT, &CSuperSockerServerMonitorApp::OnAppAbout)
 	ON_COMMAND(ID_FILE_MRU_CHECKCLIENTSTATE, &CSuperSockerServerMonitorApp::OnCheckClientState)
+	ON_COMMAND(ID_FILE_CONNECTTOSERVER, &CSuperSockerServerMonitorApp::OnFileConnecttoserver)
 END_MESSAGE_MAP()
 
 
@@ -41,6 +42,8 @@ CSuperSockerServerMonitorApp::CSuperSockerServerMonitorApp()
 
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
+
+	m_pConnectView = NULL; 
 }
 
 // The one and only CSuperSockerServerMonitorApp object
@@ -164,11 +167,23 @@ void CSuperSockerServerMonitorApp::OnAppAbout()
 void CSuperSockerServerMonitorApp::OnCheckClientState()
 {
 	//AfxMessageBox("OnCheckClientSatte");
-	
+	 //((CFrameWnd*)(AfxGetApp()->m_pMainWnd))->GetActiveView()->
+	m_socketClient.SendCheckClientState();
+	//m_pConnectView->OnFileDisplayclientstate();
 }
 
+void CSuperSockerServerMonitorApp::OnFileConnecttoserver()
+{
+	// TODO: Add your command handler code here
 
-// CSuperSockerServerMonitorApp message handlers
+	m_socketClient.Connect(NotifyProc,m_pConnectView,"127.0.0.1",2020);
+}
 
-
-
+void CALLBACK CSuperSockerServerMonitorApp::NotifyProc(LPVOID lpParam, std::string Context, UINT nCode)
+{
+	try
+	{
+		CChildView* pFrame = (CChildView*) lpParam;
+		pFrame->OnFileDisplayclientstate();
+	}catch(...){}
+}
