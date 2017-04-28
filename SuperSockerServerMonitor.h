@@ -21,7 +21,8 @@ class CSuperSockerServerMonitorApp : public CWinApp
 public:
 	CSuperSockerServerMonitorApp();
 	CChildView*		m_pConnectView; // 主连接视图
-	static void CALLBACK NotifyProc(LPVOID lpParam, std::string Content, UINT nCode);
+	static void CALLBACK NotifyProc(CChildView* lpParam, std::string Content, UINT nCode);
+
 
 // Overrides
 public:

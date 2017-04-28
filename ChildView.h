@@ -27,7 +27,7 @@ public:
 // Implementation
 public:
 	virtual ~CChildView();
-
+		void WriteToView(std::string s);
 	// Generated message map functions
 protected:
 	afx_msg void OnPaint();

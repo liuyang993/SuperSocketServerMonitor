@@ -166,9 +166,14 @@ void CSuperSockerServerMonitorApp::OnAppAbout()
 
 void CSuperSockerServerMonitorApp::OnCheckClientState()
 {
-	//AfxMessageBox("OnCheckClientSatte");
-	 //((CFrameWnd*)(AfxGetApp()->m_pMainWnd))->GetActiveView()->
+
+		//	CChildView* pFrame = (CChildView*) m_pConnectView;
+
+		//pFrame->OnFileDisplayclientstate();
 	m_socketClient.SendCheckClientState();
+
+
+
 	//m_pConnectView->OnFileDisplayclientstate();
 }
 
@@ -179,11 +184,12 @@ void CSuperSockerServerMonitorApp::OnFileConnecttoserver()
 	m_socketClient.Connect(NotifyProc,m_pConnectView,"127.0.0.1",2020);
 }
 
-void CALLBACK CSuperSockerServerMonitorApp::NotifyProc(LPVOID lpParam, std::string Context, UINT nCode)
+void CALLBACK CSuperSockerServerMonitorApp::NotifyProc(CChildView* lpParam, std::string Context, UINT nCode)
 {
 	try
 	{
 		CChildView* pFrame = (CChildView*) lpParam;
-		pFrame->OnFileDisplayclientstate();
+
+		pFrame->WriteToView(Context);
 	}catch(...){}
 }
